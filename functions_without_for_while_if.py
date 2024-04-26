@@ -17,6 +17,11 @@ def find_square_root(x: float, epsilon: float, prev_g: float):
     next_guess = 0.5 * (previous_guess + (x / previous_guess))
     return next_guess if abs(next_guess**2 - x) < epsilon else find_square_root(x, epsilon, next_guess)
 
+def make_alpha_dict(line: str):
+    words = line.split(' ')
+    unique_chars = set(''.join(words))
+    return dict(map(lambda char: (char, list(filter(lambda word: char in word, words))), unique_chars))
+
 
 
 NOPREV = -1
@@ -24,3 +29,4 @@ if __name__ == "__main__":
     print(build_acronym(["Zap", "Usps", "Kara"]))
     print(find_median([5, 7, 3, 9, 1, 2, 8, 6, 0]))
     print(find_square_root(3.0, 0.1, NOPREV))
+    print(make_alpha_dict("on i ona"))
