@@ -1,0 +1,5 @@
+INFO:__main__:Function example_function called with args: (3, 4), kwargs: {}.
+INFO:__main__:Call time: 2024-04-29 21:02:42
+INFO:__main__:Execution time: 0.0000000000 seconds.
+INFO:__main__:Returned: 7.
+INFO:__main__:Class ExampleClass instantiated with args: (10,), kwargs: {}.
