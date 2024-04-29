@@ -25,35 +25,9 @@ def make_alpha_dict(line: str):
 def flatten(lst: []):
         return sum(map(flatten, lst), []) if isinstance(lst, (list, tuple)) else [lst]
 
-def forall(pred, iterable):
-    for el in iterable:
-        if not pred(el):
-            return False
-    return True
 
-def exists(pred, iterable):
-    for el in iterable:
-        if pred(el):
-            return True
-    return False
 
-def atleast(n, pred, iterable):
-    counter = 0
-    for el in iterable:
-        if pred(el):
-            counter += 1
-            if counter >= n:
-                return True
-    return False
 
-def atmost(n, pred, iterable):
-    counter = 0
-    for el in iterable:
-        if pred(el):
-            counter += 1
-            if counter > n:
-                return False
-    return True
 
 
 NOPREV = -1
