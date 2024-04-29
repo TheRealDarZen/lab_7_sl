@@ -22,6 +22,38 @@ def make_alpha_dict(line: str):
     unique_chars = set(''.join(words))
     return dict(map(lambda char: (char, list(filter(lambda word: char in word, words))), unique_chars))
 
+def flatten(lst: []):
+        return sum(map(flatten, lst), []) if isinstance(lst, (list, tuple)) else [lst]
+
+def forall(pred, iterable):
+    for el in iterable:
+        if not pred(el):
+            return False
+    return True
+
+def exists(pred, iterable):
+    for el in iterable:
+        if pred(el):
+            return True
+    return False
+
+def atleast(n, pred, iterable):
+    counter = 0
+    for el in iterable:
+        if pred(el):
+            counter += 1
+            if counter >= n:
+                return True
+    return False
+
+def atmost(n, pred, iterable):
+    counter = 0
+    for el in iterable:
+        if pred(el):
+            counter += 1
+            if counter > n:
+                return False
+    return True
 
 
 NOPREV = -1
@@ -30,3 +62,4 @@ if __name__ == "__main__":
     print(find_median([5, 7, 3, 9, 1, 2, 8, 6, 0]))
     print(find_square_root(3.0, 0.1, NOPREV))
     print(make_alpha_dict("on i ona"))
+    print(flatten([1, [2, 3], [4], 5, [[6]]]))
