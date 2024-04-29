@@ -1,3 +1,6 @@
+import functools
+
+
 def make_generator(f):
     def generator():
         n = 1
@@ -14,6 +17,12 @@ def fib(x):
         return 1
     return fib(x - 1) + fib(x - 2)
 
+def make_generator_mem(f):
+    functools.cache(f)
+    return make_generator(f)
+
+
+
 if __name__ == "__main__":
     gen_d = make_generator(double)
     gen_f = make_generator(fib)
@@ -26,3 +35,9 @@ if __name__ == "__main__":
 
     for _ in range(10):
         print(next(generator_f))
+
+    gen_f_mem = make_generator_mem(fib)
+    generator_f_mem = gen_f_mem()
+
+    for _ in range(10):
+        print(next(generator_f_mem))
